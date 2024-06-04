@@ -1,8 +1,16 @@
-import React from 'react'
+import {suspense, useEffect, useState} from 'react'
+import {Canvas} from '@react-three/fiber'
+import {orbitControls, Preload, useGLTF} from '@react-three/drei'
+import CanvasLoader from '../Loader';
 
 const Computers = () => {
+  const computer = useGLTF('./desktop_pc/scene.gltf')
   return (
-    <div>Computers</div>
+    <Canvas 
+    frameloop='demand'
+    shadows
+    camera={{position:[20,3,5], fov:25}}
+    gl={{preserveDrawingBuffer:true}}></Canvas>
   )
 }
 
